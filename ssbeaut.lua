@@ -12,7 +12,7 @@ local children = game:GetService("Workspace").snowmanBases:GetChildren()
 local christmasGifts = game:GetService("Workspace").giftSpawns
 local boss = game:GetService("Workspace").steps.bossLedge.Boss.Boss.HumanoidRootPart
 
-local w = library:CreateWindow("Snowman Sim GUI v1a")
+local w = library:CreateWindow("Snowman Sim GUI v1a-p")
 
 local b = w:CreateFolder("Auto Farm List") -- Creates the folder(U will put here your buttons,etc)
 
