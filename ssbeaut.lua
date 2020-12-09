@@ -12,9 +12,11 @@ local children = game:GetService("Workspace").snowmanBases:GetChildren()
 local christmasGifts = game:GetService("Workspace").giftSpawns
 local boss = game:GetService("Workspace").steps.bossLedge.Boss.Boss.HumanoidRootPart
 
-local w = library:CreateWindow("Snowman Sim GUI v1a-p")
+local w = library:CreateWindow("Snowman Sim V-1a-p")
 
 local b = w:CreateFolder("Auto Farm List") -- Creates the folder(U will put here your buttons,etc)
+local l = w:CreateFolder("Exit GUI")
+
 
 local noOptions = true
 local candyFarm = false
@@ -198,7 +200,7 @@ b:Button(
         b:Button(
             "Teleport",
             function()
-                game:GetService("Workspace").DohmBoyOG1.HumanoidRootPart.CFrame =
+                 playerPosition.CFrame =
                     game:GetService("Workspace").steps.bossLedge.portal.teleportSpot.CFrame
             end
         )
@@ -231,6 +233,14 @@ b:Button(
         )
     end
 )
+
+l:DestroyGui()
+l:Label("DohmBoyOG#0313",{
+    TextSize = 15; -- Self Explaining
+    TextColor = Color3.fromRGB(255,74,0); -- Self Explaining
+    BgColor = Color3.fromRGB(69,69,69); -- Self Explaining
+    
+}) 
 
 while wait() do
     if noOptions == true and candyFarm == true and wait(1.30) then
