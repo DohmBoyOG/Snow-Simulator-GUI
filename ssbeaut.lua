@@ -60,7 +60,15 @@ autofarms:CreateButton("Boss", function()
                     CFrame.new(1774.95825, 6845.896, 93.9758835, -0.70693624, 0, 0.707277477, 0, 1, 0, -0.707277477, 0, -0.70693624) end)
     local teddy_money = teddy:CreateButton('Manual Boss Reward', function() end)
     local teddy_moneyauto = teddy:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Terrible Teddy Bear' end)
+     local gumdrop = bossfarms:CreateSection('Gumdrop King')
+     local start_gumdrop = gumdrop:CreateSwitch('Start', function(bool) autoYeti = bool sBoss = 'Gumdrop King' end)
+    local gumdrop_options = gumdrop:CreateSection('Options')
+    local gumdrop_teleport = gumdrop_options:CreateButton('Teleport', function()  gamePlayer.Character.HumanoidRootPart.CFrame =
+                    CFrame.new(1612.96106, 2031.46936, -34.4764557, -0.69781208, 0, -0.716280818, 0, 1, 0, 0.716280818, 0, -0.69781208) end)
+    local gumdrop_money = gumdrop:CreateButton('Manual Boss Reward', function() end)
+    local gumdrop_moneyauto = gumdrop:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Gumdrop King' end)
     end)
+
 
 
 
