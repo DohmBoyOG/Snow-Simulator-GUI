@@ -44,20 +44,20 @@ autofarms:CreateButton("Boss", function()
     local start_yeti = yeti:CreateSwitch('Start', function(bool) autoYeti = bool sBoss = 'Yeti Giant' end)
     local yeti_options = yeti:CreateSection('Options')
     local yeti_teleport = yeti_options:CreateButton('Teleport', function()  gamePlayer.Character.HumanoidRootPart.CFrame =
-                    CFrame.new(Vector3.new(1518.26, 1310.88, 50.0914))  end)
+                    CFrame.new(1549.21375, 1310.87549, -88.4116821, -0.947578907, 0, -0.319522291, 0, 1, 0, 0.319522291, 0, -0.947578907)  end)
     local yeti_money = yeti:CreateButton('Manual Boss Reward', function() end)
     local yeti_moneyauto = yeti:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Yeti Giant' end)
     local ginger = bossfarms:CreateSection('Bad Batch Gingey')
     local start_ginger = ginger:CreateSwitch('Start', function(bool) autoYeti = bool sBoss = 'Bad Batch Gingey' end)
     local ginger_options = ginger:CreateSection('Options')
-    local ginger_teleport = ginger_options:CreateButton('Teleport', function()  gamePlayer.Character.HumanoidRootPart.CFrame = CFrame.new(Vector3.new(1505.24, 3447.21, 45.6439)) end)
+    local ginger_teleport = ginger_options:CreateButton('Teleport', function()  gamePlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1498.91821, 3447.21191, -42.1051826, -0.3110888, 0, -0.950380862, 0, 1, 0, 0.950380862, 0, -0.3110888) end)
     local ginger_money = ginger:CreateButton('Manual Boss Reward', function() end)
     local ginger_moneyauto = ginger:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Bad Batch Gingey' end)
     local teddy = bossfarms:CreateSection('Terrible Teddy Bear')
      local start_teddy = teddy:CreateSwitch('Start', function(bool) autoYeti = bool sBoss = 'Terrible Teddy Bear' end)
     local teddy_options = teddy:CreateSection('Options')
     local teddy_teleport = teddy_options:CreateButton('Teleport', function()  gamePlayer.Character.HumanoidRootPart.CFrame =
-                    CFrame.new(Vector3.new(1633.6, 6845.9, 254.709)) end)
+                    CFrame.new(1774.95825, 6845.896, 93.9758835, -0.70693624, 0, 0.707277477, 0, 1, 0, -0.707277477, 0, -0.70693624) end)
     local teddy_money = teddy:CreateButton('Manual Boss Reward', function() end)
     local teddy_moneyauto = teddy:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Terrible Teddy Bear' end)
     end)
@@ -264,3 +264,5 @@ while wait() do
     
     
 end
+
+
