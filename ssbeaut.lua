@@ -13,6 +13,7 @@ local autoYetiMoney
 local autoYeti
 local autoSell
 local sBoss
+local customWait
 
 local candyCount = {}
 
@@ -45,28 +46,32 @@ autofarms:CreateButton("Boss", function()
     local yeti_options = yeti:CreateSection('Options')
     local yeti_teleport = yeti_options:CreateButton('Teleport', function()  gamePlayer.Character.HumanoidRootPart.CFrame =
                     CFrame.new(1549.21375, 1310.87549, -88.4116821, -0.947578907, 0, -0.319522291, 0, 1, 0, 0.319522291, 0, -0.947578907)  end)
-    local yeti_money = yeti:CreateButton('Manual Boss Reward', function() end)
-    local yeti_moneyauto = yeti:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Yeti Giant' end)
+    local yeti_money = yeti_options:CreateButton('Manual Boss Reward', function() end)
+    local yeti_moneyauto = yeti_options:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Yeti Giant' end)
+    local yeti_slider = yeti_options:CreateSlider("Custom Kill Wait", function(value) customWait = value end,0,100,0.1)
     local ginger = bossfarms:CreateSection('Bad Batch Gingey')
     local start_ginger = ginger:CreateSwitch('Start', function(bool) autoYeti = bool sBoss = 'Bad Batch Gingey' end)
     local ginger_options = ginger:CreateSection('Options')
     local ginger_teleport = ginger_options:CreateButton('Teleport', function()  gamePlayer.Character.HumanoidRootPart.CFrame = CFrame.new(1498.91821, 3447.21191, -42.1051826, -0.3110888, 0, -0.950380862, 0, 1, 0, 0.950380862, 0, -0.3110888) end)
-    local ginger_money = ginger:CreateButton('Manual Boss Reward', function() end)
-    local ginger_moneyauto = ginger:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Bad Batch Gingey' end)
+    local ginger_money = ginger_options:CreateButton('Manual Boss Reward', function() end)
+    local ginger_moneyauto = ginger_options:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Bad Batch Gingey' end)
+    local ginger_slider = ginger_options:CreateSlider("Custom Kill Wait", function(value) customWait = value end,0,100,0.1)
     local teddy = bossfarms:CreateSection('Terrible Teddy Bear')
      local start_teddy = teddy:CreateSwitch('Start', function(bool) autoYeti = bool sBoss = 'Terrible Teddy Bear' end)
     local teddy_options = teddy:CreateSection('Options')
     local teddy_teleport = teddy_options:CreateButton('Teleport', function()  gamePlayer.Character.HumanoidRootPart.CFrame =
                     CFrame.new(1774.95825, 6845.896, 93.9758835, -0.70693624, 0, 0.707277477, 0, 1, 0, -0.707277477, 0, -0.70693624) end)
-    local teddy_money = teddy:CreateButton('Manual Boss Reward', function() end)
-    local teddy_moneyauto = teddy:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Terrible Teddy Bear' end)
+    local teddy_money = teddy_options:CreateButton('Manual Boss Reward', function() end)
+    local teddy_moneyauto = teddy_options:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Terrible Teddy Bear' end)
+    local teddy_slider = teddy_options:CreateSlider("Custom Kill Wait", function(value) customWait = value end,0,100,0.1)
      local gumdrop = bossfarms:CreateSection('Gumdrop King')
      local start_gumdrop = gumdrop:CreateSwitch('Start', function(bool) autoYeti = bool sBoss = 'Gumdrop King' end)
     local gumdrop_options = gumdrop:CreateSection('Options')
     local gumdrop_teleport = gumdrop_options:CreateButton('Teleport', function()  gamePlayer.Character.HumanoidRootPart.CFrame =
                     CFrame.new(1612.96106, 2031.46936, -34.4764557, -0.69781208, 0, -0.716280818, 0, 1, 0, 0.716280818, 0, -0.69781208) end)
-    local gumdrop_money = gumdrop:CreateButton('Manual Boss Reward', function() end)
-    local gumdrop_moneyauto = gumdrop:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Gumdrop King' end)
+    local gumdrop_money = gumdrop_options:CreateButton('Manual Boss Reward', function() end)
+    local gumdrop_moneyauto = gumdrop_options:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Gumdrop King' end)
+    local gumdrop_slider = gumdrop_options:CreateSlider("Custom Kill Wait", function(value) customWait = value end,0,100,0.1)
     end)
 
 
@@ -227,7 +232,7 @@ function autoKill()
         local A_1 = "explodeLauncher"
         local A_2 = bossPosition.Boss.HumanoidRootPart.CFrame.p;
         local Event = game:GetService("ReplicatedStorage").ThisGame.Calls.snowballProjectile
-        wait(1)
+        wait(customWait)
         for i=1, 20 do 
         Event:FireServer(A_1, A_2)
         game:GetService("RunService").Heartbeat:wait()
