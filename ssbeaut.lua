@@ -109,7 +109,7 @@ autofarms:Collapse()
 
 main:CreateButton("Exit GUI",function() gui:CleanUp() end)
 
-main:CreateTextLabel('Created by DohmBoyOG#0313 \n Version: 0.36 Pre-Release')
+main:CreateTextLabel('Created by DohmBoyOG#0313 \n Version: 0.91B')
 
 
 ------- END GUI STUFF -------
