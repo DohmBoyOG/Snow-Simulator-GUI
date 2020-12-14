@@ -36,6 +36,7 @@ autofarms:CreateButton('Snowbase', function()
     local options = snowbase:CreateSection('Options')
     local rebirth = options:CreateSwitch('Rebirth', function(bool) rebirthAuto = bool end)
     --local maxBalls = options:CreateSwitch('No Max Size', function(bool) maxBall = bool end)
+    options:Collapse()
 end)
 
 
@@ -72,6 +73,14 @@ autofarms:CreateButton("Boss", function()
     local gumdrop_money = gumdrop_options:CreateButton('Manual Boss Reward', function() end)
     local gumdrop_moneyauto = gumdrop_options:CreateSwitch('Auto Boss Reward', function(bool) autoYetiMoney = bool sBoss = 'Gumdrop King' end)
     local gumdrop_slider = gumdrop_options:CreateSlider("Custom Kill Wait", function(value) customWait = value end,0,100,0.1,false,1)
+    yeti:Collapse()
+    ginger:Collapse()
+    teddy:Collapse()
+    gumdrop:Collapse()
+    yeti_options:Collapse()
+    teddy_options:Collapse()
+    ginger_options:Collapse()
+    gumdrop_options:Collapse()
     end)
 
 
@@ -83,6 +92,7 @@ autofarms:CreateButton("Candy", function()
     local options = candies:CreateSection('Options')
     local slider = options:CreateSlider("Amount to Wait", function(value) if waitCheck() == true then noOptions = false end waitCount = value end,0,25,1)
     local sell = options:CreateSwitch('AutoSell', function(value) autoSell = value end)
+    options:Collapse()
     end)
 
 
