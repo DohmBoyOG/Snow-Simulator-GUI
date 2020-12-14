@@ -98,6 +98,8 @@ autofarms:CreateButton("Candy", function()
 
 autofarms:CreateButton("Minions", function() notImplemented() end, false)
 
+autofarms:Collapse()
+
 main:CreateButton("Exit GUI",function() gui:CleanUp() end)
 
 main:CreateTextLabel('Created by DohmBoyOG#0313 \n Version: 0.36 Pre-Release')
