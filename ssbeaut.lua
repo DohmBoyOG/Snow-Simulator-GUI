@@ -4,6 +4,7 @@ local ballCount = game:GetService("Players").LocalPlayer.localData.snowballs
 local sackStorage = game:GetService("Players").LocalPlayer.localData.sackStorage
 local children = game:GetService("Workspace").snowmanBases:GetChildren()
 local bossStep = game:GetService("Workspace").steps
+local getMinions = game:GetService("Workspace"):GetDescendants()
 
 local autoSnow
 local rebirthAuto
@@ -14,6 +15,7 @@ local autoYeti
 local autoSell
 local sBoss
 local customWait
+local doKill
 
 local candyCount = {}
 
@@ -96,7 +98,12 @@ autofarms:CreateButton("Candy", function()
     end)
 
 
-autofarms:CreateButton("Minions", function() notImplemented() end, false)
+autofarms:CreateButton("Minions", function()
+    local minions_start = gui:CreateCategory("Minion Farm")
+    local start = minions_start:CreateSwitch('Start', function(bool) doKill = bool end)
+    local options_min = minions_start:CreateSection('Options')
+    local god = options_min:CreateButton('Minion God Mode', function() loadstring(game:HttpGet("https://raw.githubusercontent.com/DohmBoyOG/Snow-Simulator-GUI/main/mGod.lua"))() end)
+    end)
 
 autofarms:Collapse()
 
@@ -261,6 +268,19 @@ function notImplemented()
         })
 end
 
+function killMinions()
+    for _, value in pairs(getMinions) do
+        if value:IsA('Folder') and value.name == 'minionHolder' then
+            for _, m in pairs(value:GetChildren()) do
+                for i = 1, 20 do
+                    game:GetService("ReplicatedStorage").ThisGame.Calls.minionHelper:FireServer("minionHit", m)
+                    game:GetService("RunService").Heartbeat:wait()
+                end
+            end
+        end
+    end
+end
+
 
 while wait() do
     if autoSnow == true then
@@ -286,6 +306,11 @@ while wait() do
     if autoYeti == true then
         autoKill()
     end
+    
+    if doKill == true then
+        killMinions()
+    end
+    
     
     
 end
