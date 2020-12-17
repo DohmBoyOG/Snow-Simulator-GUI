@@ -5,6 +5,8 @@ local sackStorage = game:GetService("Players").LocalPlayer.localData.sackStorage
 local children = game:GetService("Workspace").snowmanBases:GetChildren()
 local bossStep = game:GetService("Workspace").steps
 local getMinions = game:GetService("Workspace"):GetDescendants()
+local pvpList = game:GetService("Players"):GetPlayers()
+local gameVector = Vector3.new(math.random(5000), y, math.random(5000))
 
 local autoSnow
 local rebirthAuto
@@ -16,10 +18,15 @@ local autoSell
 local sBoss
 local customWait
 local doKill
+local murderKid
 
 local candyCount = {}
 
 local waitCount = 0
+local killPlayer = "pvpHit"
+local eventKill = game:GetService("ReplicatedStorage").ThisGame.Calls.snowballProjectile
+
+
 
 
 
@@ -100,7 +107,42 @@ autofarms:CreateButton("Minions", function()
     local start = minions_start:CreateSwitch('Start', function(bool) doKill = bool end)
     local options_min = minions_start:CreateSection('Options')
     local god = options_min:CreateButton('Minion God Mode', function() loadstring(game:HttpGet("https://raw.githubusercontent.com/DohmBoyOG/Snow-Simulator-GUI/main/mGod.lua"))() end)
-    end)
+end)
+
+autofarms:CreateButton('Players', function()
+    local player_cat = gui:CreateCategory('Player Fun')
+    local selector = player_cat:CreateSelector('Player: ', function() return; end, function()    local pvpEnabled = {}
+    
+    for i, player in pairs(pvpList) do 
+        if player == game.Players.LocalPlayer then
+            table.remove(pvpList, i)
+        end
+    end
+    
+    for _, v in pairs(pvpList) do
+        if v.localData.playerSettings.pvp.value == true then
+            table.insert(pvpEnabled,v)
+        end
+    end
+    
+    return pvpEnabled end, 'none') 
+local Manual = player_cat:CreateButton('Teleport Kill', function()
+Players = game:GetService("Players")
+for i, player in pairs(Players:GetPlayers()) do
+    if player == selector:GetValue() then 
+        --attackPlayer = player.name
+        --playerHealth = player.localData.health.value
+        gamePlayer.Character.HumanoidRootPart.CFrame = player.Character.HumanoidRootPart.CFrame * CFrame.new(0,0,8)
+        repeat
+            for i = 1, 2 do
+                eventKill:FireServer(killPlayer, player, gameVector)
+                wait(0.30)
+            end
+        until player.Character.Humanoid.Health == 0
+        
+    end
+end
+ end) end)
 
 autofarms:Collapse()
 
@@ -291,6 +333,26 @@ function teleportBoss(boss)
         end
     end
 end
+
+function murderChild()
+    
+    local pvpEnabled = {}
+    
+    for i, player in pairs(pvpList) do 
+        if player == game.Players.LocalPlayer then
+            table.remove(pvpList, i)
+        end
+    end
+    
+    for _, v in pairs(pvpList) do
+        if v.localData.playerSettings.pvp.value == true then
+            table.insert(pvpEnabled,v)
+        end
+    end
+    
+    return pvpEnabled
+end
+
 
 while wait() do
     if autoSnow == true then
