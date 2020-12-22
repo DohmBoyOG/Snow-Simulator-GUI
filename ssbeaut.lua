@@ -27,7 +27,7 @@ local killPlayer = "pvpHit"
 local eventKill = game:GetService("ReplicatedStorage").ThisGame.Calls.snowballProjectile
 
 
-
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DohmBoyOG/Snow-Simulator-GUI/main/updateFrame.lua"))() -- KINDA USELESS NGL
 
 
 local config = {
@@ -142,13 +142,16 @@ for i, player in pairs(Players:GetPlayers()) do
         
     end
 end
- end) end)
+end) 
+local pvpKillAll = player_cat:CreateButton('PVP-Enabled Kill All', function() loadstring(game:HttpGet("https://raw.githubusercontent.com/DohmBoyOG/Snow-Simulator-GUI/main/SilentKillALLV1.lua"))() end)
+
+end)
 
 autofarms:Collapse()
 
 main:CreateButton("Exit GUI",function() gui:CleanUp() end)
 
-main:CreateTextLabel('Created by DohmBoyOG#0313 \n Version: 0.94B')
+main:CreateTextLabel('Created by DohmBoyOG#0313 \n Version: 1.0')
 
 
 ------- END GUI STUFF -------
