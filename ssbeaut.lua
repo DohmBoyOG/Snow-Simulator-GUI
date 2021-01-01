@@ -7,6 +7,8 @@ local bossStep = game:GetService("Workspace").steps
 local getMinions = game:GetService("Workspace"):GetDescendants()
 local pvpList = game:GetService("Players"):GetPlayers()
 local gameVector = Vector3.new(math.random(5000), y, math.random(5000))
+local FindOldInstance = game:GetService("CoreGui"):FindFirstChild('ScreenGui')
+local test = game:GetService("CoreGui"):GetChildren()
 
 local autoSnow
 local rebirthAuto
@@ -27,8 +29,9 @@ local killPlayer = "pvpHit"
 local eventKill = game:GetService("ReplicatedStorage").ThisGame.Calls.snowballProjectile
 
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/DohmBoyOG/Snow-Simulator-GUI/main/updateFrame.lua"))() -- KINDA USELESS NGL
-
+if FindOldInstance then
+		FindOldInstance:Destroy()
+	end
 
 local config = {
     ["HeaderWidth"] = 240,
@@ -39,6 +42,7 @@ local gui = loadstring(game:HttpGet("https://gitlab.com/0x45.xyz/droplib/-/raw/m
 local main = gui:CreateCategory("Snowman Simulator GUI")
 local autofarms = main:CreateSection('Auto Farms')
 
+
 autofarms:CreateButton('Snowbase', function()
     local snowbase = gui:CreateCategory('Automatic Snowbase Farm')
     local start_base = snowbase:CreateSwitch('Start', function(bool) autoSnow = bool end)
@@ -46,7 +50,8 @@ autofarms:CreateButton('Snowbase', function()
     local rebirth = options:CreateSwitch('Rebirth', function(bool) rebirthAuto = bool end)
     --local maxBalls = options:CreateSwitch('No Max Size', function(bool) maxBall = bool end)
     options:Collapse()
-end)
+    
+    end)
 
 
 autofarms:CreateButton("Boss", function() 
