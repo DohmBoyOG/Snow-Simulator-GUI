@@ -28,6 +28,7 @@ local waitCount = 0
 local killPlayer = "pvpHit"
 local eventKill = game:GetService("ReplicatedStorage").ThisGame.Calls.snowballProjectile
 
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DohmBoyOG/Script-Dump/main/newnotif.lua"))()
 
 if FindOldInstance then
 		FindOldInstance:Destroy()
